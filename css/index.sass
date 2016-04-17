@@ -1,0 +1,72 @@
+@import '~font-awesome/css/font-awesome.css'
+@import '~roboto-fontface/css/roboto-fontface.css'
+
+@import './mobile-content.sass'
+
+body,html,.application
+  height: 100%
+  width: 100%
+  font-family: Roboto
+  font-size: 12px
+
+*
+  margin: 0px
+  padding: 0px
+  box-sizing: border-box
+
+.application
+  background-color: #fff
+  display: flex
+
+.mobile-wrapper
+  position: relative
+  display: flex
+  margin: auto
+  flex-direction: column
+  width: 300px
+  height: 480px
+  overflow: hidden
+  background: radial-gradient(#673ab7, lighten(#673ab7, 5%))
+  box-shadow: 1px 1px 5px #444
+
+.mobile
+  &-container
+    height: 100%
+
+  =navItem
+    width: 100%
+    position: absolute
+    left: 0px
+    top: 0px
+
+  &_nav
+    position: relative
+    height: 20px
+    line-height: 20px
+    width: 96%
+    margin: 0px auto
+    color: #fff
+    font-size: 12px
+
+  &_nav--dots
+    display: inline-block
+    & > span
+      display: block
+      float: left
+      background: #fff
+      width: 5px
+      height: 5px
+      border-radius: 100%
+      margin: 0px 1px
+
+  &_nav--left
+    +navItem
+
+  &_nav--center
+    +navItem
+    font-weight: bold
+    text-align: center
+
+  &_nav--right
+    +navItem
+    text-align: right
