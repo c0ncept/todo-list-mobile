@@ -1,0 +1,34 @@
+.mobile-content
+  height: 100%
+  width: 100%
+  position: relative
+
+  .items_list
+    &--scroll
+      height: 365px
+      overflow: hidden
+
+    &--item
+      display: flex
+      flex-direction: row
+      width: 100%
+      padding: 20px 0px
+      align-items: center
+      text-align: left
+      border-bottom: 1px dashed pink
+      background: #aa00ff
+      color: #fff
+
+      &:last-child
+        border-bottom: none
+
+      &.completed
+        background: #9600e0
+
+      &--checkbox
+        width: 40px
+        color: inherit
+        text-align: center
+      &--title
+        color: inherit
+        font-size: 14px

@@ -23,6 +23,7 @@
       height: 100%
     &--screen
       height: 100%
+      padding-top: 90px
       width: 300px
       float : left
     &--screen[data-index="0"]
@@ -49,9 +50,13 @@
       font-size: 20px
       border-top: 1px solid pink
       background: lighten(#aa00ff, 3%)
+
+      small
+        font-size: 14px
+
       &:not(.active)
         background: darken(#aa00ff, 8%)
         border-top: 1px solid darken(#aa00ff, 12%)
         cursor: pointer
-        i
+        & > *
           cursor: pointer

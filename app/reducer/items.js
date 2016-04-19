@@ -1,7 +1,23 @@
 const initalState = [
 {
-  title : 'Conceptual tasks filters',
+  title : 'Custom global controls',
   completed : false
+},
+{
+  title : 'Editable item behavior',
+  completed : false
+},
+{
+  title : 'New item creation support',
+  completed : false
+},
+{
+  title : 'Scollable items layout',
+  completed : false
+},
+{
+  title : 'Conceptual tasks filters',
+  completed : true
 },
 {
   title : 'Conceptual tasks navigation',
