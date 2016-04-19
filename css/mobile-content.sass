@@ -1,10 +1,10 @@
 
 =tab1
-  background: #aa00ff
+  background: darken(#aa00ff, 3%)
 =tab2
-  background: darken(#aa00ff, 5%)
+  background: #aa00ff
 =tab3
-  background: darken(#aa00ff, 10%)
+  background: darken(#aa00ff, 6%)
 
 .mobile-content
   height: 100%
@@ -31,12 +31,6 @@
       +tab2
     &--screen[data-index="2"]
       +tab3
-    &--tab:nth-child(1)
-      +tab1
-    &--tab:nth-child(2)
-      +tab2
-    &--tab:nth-child(3)
-      +tab3
     &--tabs
       position: absolute
       width: 300px
@@ -52,11 +46,12 @@
       width: 100%
       height: 100%
       color: #fff
-      font-size: 24px
-      transition: font-size .1s linear
+      font-size: 20px
+      border-top: 1px solid pink
+      background: lighten(#aa00ff, 3%)
       &:not(.active)
-        font-size: 18px
-        transition: font-size .1s linear
+        background: darken(#aa00ff, 8%)
+        border-top: 1px solid darken(#aa00ff, 12%)
         cursor: pointer
         i
           cursor: pointer
