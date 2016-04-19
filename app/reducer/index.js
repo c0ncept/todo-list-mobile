@@ -11,6 +11,7 @@ const store = createStore(
       items,
       filter
   }),
+  window.devToolsExtension ? window.devToolsExtension() : f => f,
   applyMiddleware(logger)
 );
 
