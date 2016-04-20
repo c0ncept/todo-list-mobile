@@ -19,24 +19,27 @@
     .slick-list,.slick-track
       height: 100%
 
+    &--screen-title
+      position: absolute
+      top: 40px
+      color: #fff
+      font-size: 14px
+      text-transform: uppercase
+      text-indent: 10px
+
     &--wrapper
       height: 100%
     &--screen
       height: 100%
-      padding-top: 90px
+      margin-top: 100px
       width: 300px
       float : left
-    &--screen[data-index="0"]
-      +tab1
-    &--screen[data-index="1"]
-      +tab2
-    &--screen[data-index="2"]
-      +tab3
+      background: #fff
     &--tabs
       position: absolute
       width: 300px
       height: 30px
-      bottom: 0
+      top: 70px
       z-index: 10
       display: flex
       flex-direction: row
@@ -47,16 +50,14 @@
       width: 100%
       height: 100%
       color: #fff
-      font-size: 20px
-      border-top: 1px solid pink
-      background: lighten(#aa00ff, 3%)
+      font-size: 14px
+      border-bottom: 3px solid pink
 
       small
-        font-size: 14px
+        font-size: 12px
 
       &:not(.active)
-        background: darken(#aa00ff, 8%)
-        border-top: 1px solid darken(#aa00ff, 12%)
+        border-bottom: 3px solid darken(#aa00ff, 12%)
         cursor: pointer
         & > *
           cursor: pointer

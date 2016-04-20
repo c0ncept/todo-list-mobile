@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import Slider from 'react-slick';
 import IScroll from 'iscroll/build/iscroll';
 
+import NewTodo from 'component/NewTodo';
+
 class ItemsList extends Component {
 
   constructor() {
@@ -11,6 +13,10 @@ class ItemsList extends Component {
       mouseWheel: true,
       scrollbars: false,
       scrollX: false,
+      disableMouse: true,
+      useTransition : false,
+      HWCompositing : false,
+      useTransform : true,
       scrollY: true
     }
     this.settings = {
@@ -49,15 +55,15 @@ class ItemsList extends Component {
 
   compileItem(i, n) {
     let itemCls = 'items_list--item';
-    itemCls += i.completed === false ? ' completed'  : '';
+    itemCls += i.completed === true ? ' completed'  : '';
 
     return (
       <div key={i.title+n} className={itemCls}>
        <div className="items_list--item--checkbox">
         {
           i.completed === true ?
-            <i className="fa fa-check" aria-hidden="true"></i>
-          : <i className="fa fa-info" aria-hidden="true"></i>
+            <i className="fa fa-check-square-o" aria-hidden="true"></i>
+          : <i className="fa fa-square-o" aria-hidden="true"></i>
         }
        </div>
        <div className="items_list--item--title">
@@ -81,7 +87,20 @@ class ItemsList extends Component {
 
     return (
       <div className="items_list">
-
+        <div className="items_list--screen-title">
+          Todo list
+        </div>
+        <div className="items_list--tabs">
+          <div className="items_list--tab active" onClick={this.slideTo.bind(this, 0)}>
+            <small>ALL</small>
+          </div>
+          <div className="items_list--tab" onClick={this.slideTo.bind(this, 1)}>
+            <i className="fa fa-check-square-o" aria-hidden="true"></i>
+          </div>
+          <div className="items_list--tab" onClick={this.slideTo.bind(this, 2)}>
+            <i className="fa fa-square-o" aria-hidden="true"></i>
+          </div>
+        </div>
           <Slider {...this.settings} slickGoTo={this.state.currentSlide}>
             <div className="items_list--screen">
               <div id="items-all" className="items_list--scroll">
@@ -97,18 +116,7 @@ class ItemsList extends Component {
               {items.incomplete}
             </div>
           </Slider>
-
-        <div className="items_list--tabs">
-          <div className="items_list--tab active" onClick={this.slideTo.bind(this, 0)}>
-            <small>ALL</small>
-          </div>
-          <div className="items_list--tab" onClick={this.slideTo.bind(this, 1)}>
-            <i className="fa fa-check-square-o" aria-hidden="true"></i>
-          </div>
-          <div className="items_list--tab" onClick={this.slideTo.bind(this, 2)}>
-            <i className="fa fa-square-o" aria-hidden="true"></i>
-          </div>
-        </div>
+          <NewTodo />
       </div>
     )
   }

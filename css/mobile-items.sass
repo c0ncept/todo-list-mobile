@@ -5,7 +5,7 @@
 
   .items_list
     &--scroll
-      height: 365px
+      height: 380px
       overflow: hidden
 
     &--item
@@ -16,19 +16,28 @@
       align-items: center
       text-align: left
       border-bottom: 1px dashed pink
-      background: #aa00ff
-      color: #fff
+      border-left: 8px solid pink
 
       &:last-child
         border-bottom: none
 
       &.completed
-        background: #9600e0
+        border-left: 8px solid #1de9b6
+        text-decoration: line-through
+        .items_list--item--title
+          color: #828282
+          font-style: italic
+        .items_list--item--checkbox
+          color : #1de9b6
+
 
       &--checkbox
         width: 40px
-        color: inherit
+        color: pink
         text-align: center
+        font-size: 18px
+
       &--title
         color: inherit
-        font-size: 14px
+        font-size: 16px
+        color: #444
