@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
+import {connect} from 'react-redux';
+import {Actions} from 'reducer/items';
 
-export default class NewTodo extends Component {
+
+class NewTodo extends Component {
   constructor() {
     super();
     this.state = {
@@ -9,26 +12,48 @@ export default class NewTodo extends Component {
     }
   }
 
-  toggleMode() {
+  setLayout(layout) {
+    if (layout === this.state.mode) {
+      return;
+    }
     this.setState({
-      mode : this.state.mode === 'layout' ? '' : 'layout'
+      mode : layout
     });
+  }
+
+  createTodo() {
+    let title = document.getElementById('new-todo-title').value;
+    if (title.length > 0) {
+      this.props.dispatch(Actions.ADD_TODO(title));
+      this.setLayout('button');
+    }
   }
 
   render() {
     return (
       <div className={this.state.mode === 'button' ? 'new-todo' : 'new-todo layout-new-todo'}
-        onClick={this.toggleMode.bind(this)}>
-        {this.state.mode === 'button' ? <span className="new-todo--icon">+</span> :
+        onClick={this.setLayout.bind(this, 'layout')}>
+        {this.state.mode === 'button' ?
+        <span className="new-todo--icon">
+          <i className="fa fa-plus" aria-hidden="true"></i>
+        </span> :
 
         <div className="layout-new-todo--wrapper">
-          <h3>New todo</h3>
-          <input type="text" placeholder="Todo ..." />
+          <i className="fa fa-file" aria-hidden="true"></i>
+          <input id="new-todo-title" type="text" placeholder="New todo..." />
 
-          <span className="button">Create Todo</span>
+          <span className="button" onClick={this.createTodo.bind(this)}>
+            Create Todo <i className="fa fa-file-o" aria-hidden="true"></i>
+          </span>
+
+          <span className="new-todo--close-icon" onClick={this.setLayout.bind(this, 'button')}>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </span>
         </div>
        }
       </div>
     )
   }
 }
+
+export default connect(state => ({state}))(NewTodo);

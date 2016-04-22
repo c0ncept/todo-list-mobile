@@ -8,6 +8,11 @@
       height: 380px
       overflow: hidden
 
+    h2
+      text-align: center
+      margin-top: 180px
+      color: #828282
+
     &--item
       display: flex
       flex-direction: row
@@ -15,14 +20,13 @@
       padding: 20px 0px
       align-items: center
       text-align: left
-      border-bottom: 1px dashed pink
-      border-left: 8px solid pink
+      position: relative
 
       &:last-child
-        border-bottom: none
+        .items_list--item--sp
+          display: none
 
       &.completed
-        border-left: 8px solid #1de9b6
         text-decoration: line-through
         .items_list--item--title
           color: #828282
@@ -33,11 +37,32 @@
 
       &--checkbox
         width: 40px
-        color: pink
+        color: #e91e63
         text-align: center
         font-size: 18px
+        padding: 5px 0px
+        cursor: pointer
+        & > i
+          cursor: pointer
 
       &--title
         color: inherit
         font-size: 16px
         color: #444
+        cursor: text
+      &--sp
+        position: absolute
+        bottom: 0px
+        width: 100%
+        left: 0px
+        &:after
+          width: 100px
+          position: absolute
+          bottom: 0px
+          width: 100%
+          display: block
+          content: '. . . . . . . . . .'
+          font-size: 12px
+          letter-spacing: 3px
+          text-align: center
+          color: #e91e63

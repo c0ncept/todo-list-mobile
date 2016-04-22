@@ -1,30 +1,117 @@
 
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
 
 =materialShadow
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
-
-.new-todo
+=icon
   position: absolute
   left: 250px
   top: 430px
   z-index: 8
-  background: #1de9b6
   height: 40px
   width: 40px
-  line-height: 40px
+  line-height: 44px
   border-radius: 100%
   box-shadow: 0px 0px 2px #828282
   text-align: center
   cursor: pointer
   transition: all .1s linear
+  i
+    cursor: pointer
+    font-size: 16px
   &:hover
     +materialShadow
 
 
+.edit-todo
+  &--close-icon
+    +icon
+    display: block
+    background: #e91e63
+    color: #fff
+    &:hover
+      box-shadow: 2px 2px 5px #727272
+  &--wrapper
+    position: absolute
+    left: -1px
+    top: 40%
+    z-index: 8
+    background: #4a148c
+    height: 0px
+    width: 0px
+    transition: all .1s linear
+  &--layout
+    top: 0px
+    left: 0px
+    height: 100%
+    width: 100%
+    transition: all .1s linear
+  &--content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
+    width: 100%
+    padding: 0px 10px
+    & > i
+      color: #fff
+      font-size: 54px
+    h3
+      text-transform: uppercase
+      color: #ddd
+    span.button
+      color: #fff
+      background-color: #f50057
+      text-align: center
+      letter-spacing: .5px
+      cursor: pointer
+      text-transform: uppercase
+      height: 36px
+      line-height: 36px
+      outline: 0
+      padding: 0 2rem
+      width: 100%
+      border-radius: 2px
+      transition: box-shadow .2s ease
+      i
+        margin-left: 5px
+      &:hover
+        transition: box-shadow .2s ease
+        box-shadow: 2px 2px 5px #727272
+    input
+      background-color: transparent
+      border: none
+      border-bottom: 1px solid pink
+      border-radius: 0
+      outline: none
+      height: 3rem
+      width: 100%
+      font-size: 2rem
+      padding: 0
+      box-shadow: none
+      box-sizing: content-box
+      color: #fff
+      cursor: text
+      display: block
+      margin: 70px 0px 30px 0px
+      +placeholder
+        color: #fff
+
+.new-todo
+  +icon
+  background: #00c853
+
   &--icon
     color: #fff
-    font-size: 24px
-    cursor: pointer
 
 .layout-new-todo
   width: 100%
@@ -33,6 +120,12 @@
   left: 0px
   border-radius: 0px
   cursor: default
+
+  .new-todo--close-icon
+    +icon
+    display: block
+    background: #e91e63
+    color: #fff
 
   &--wrapper
     display: flex
@@ -44,9 +137,10 @@
     padding: 0px 10px
     h3
       text-transform: uppercase
+      padding-bottom: 30px
     span.button
       color: #fff
-      background-color: #26a69a
+      background-color: #f50057
       text-align: center
       letter-spacing: .5px
       cursor: pointer
@@ -55,22 +149,32 @@
       line-height: 36px
       outline: 0
       padding: 0 2rem
+      width: 100%
       border-radius: 2px
       transition: box-shadow .2s ease
+      i
+        margin-left: 5px
+        font-size: 14px
       &:hover
         transition: box-shadow .2s ease
         +materialShadow
     input
       background-color: transparent
       border: none
-      border-bottom: 1px solid #000
+      color: #fff
+      border-bottom: 1px solid pink
       border-radius: 0
       outline: none
       height: 3rem
       width: 100%
-      font-size: 1rem
-      margin: 0 0 15px 0
+      font-size: 2rem
       padding: 0
       box-shadow: none
       box-sizing: content-box
       cursor: text
+      margin: 70px 0px 30px 0px
+      +placeholder
+        color: #fff
+    & > i
+      color: #fff
+      font-size: 54px
